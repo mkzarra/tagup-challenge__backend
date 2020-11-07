@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const keys = require('./config/keys');
@@ -12,7 +13,10 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cookieSession({ maxAge: 2592000000, keys: [keys.cookieKey] })); // maxAge is thirty days
+app.use(passport.initialize());
+app.use(passport.session());
 
+require('./routes/authRoutes')(app);
 require('./routes/dogRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
