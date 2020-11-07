@@ -13,6 +13,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cookieSession({ maxAge: 2592000000, keys: [keys.cookieKey] })); // maxAge is thirty days
 
+require('./routes/dogRoutes')(app);
+
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve production assets such as main.js or main.css
 	app.use(express.static('client/build'));
