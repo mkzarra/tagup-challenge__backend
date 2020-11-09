@@ -2,9 +2,9 @@ const { index, show, create, update, destroy } = require('../controllers/dogCont
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
-	app.get('/dogs', index);
-	app.get('/dogs/:id', show);
-	app.post('/dogs', requireLogin, create);
-	app.put('/dogs/:id', requireLogin, update);
-	app.delete('/dogs/:id', requireLogin, destroy);
+	app.get('/api/dogs', index);
+	app.get('/api/dogs/:id', show);
+	app.post('/api/dogs', requireLogin, create);
+	app.put('/api/dogs/:id', requireLogin, update);
+	app.delete('/api/dogs/:id', requireLogin, destroy);
 }

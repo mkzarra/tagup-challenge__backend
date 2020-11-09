@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const keys = require('./config/keys');
 
+require('./models/dog');
+require('./models/user');
+
 mongoose.connect(keys.mongoURI);
 
 const app = express();
