@@ -1,0 +1,12 @@
+.Dogtime {
+  transition: all 0.2s;
+}
+
+nav p {
+  padding: 0 16px;
+  display: inline;
+}
+
+.Dogtime:hover {
+  background: #00000018;
+}

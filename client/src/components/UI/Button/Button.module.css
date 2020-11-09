@@ -1,0 +1,14 @@
+.Button {
+	color: aliceblue;
+	background: #49cece;
+	height: 2rem;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+	transition: 0.1s;
+	letter-spacing: 1.2px;
+}
+
+.Button:hover {
+	background: #2bddce;
+}
