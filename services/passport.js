@@ -18,10 +18,10 @@ passport.use(
 	new GoogleStrategy({
 		clientID: keys.googleClientId,
 		clientSecret: keys.googleClientSecret,
-		callbackURL: '',
+		callbackURL: '/auth/google/callback',
 		proxy: true,
 		userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo'
-	}),
+	},
 	
 	async (accessToken, refreshToken, profile, done) => {
 		try {
@@ -43,5 +43,5 @@ passport.use(
 		} catch (error) {
 			console.log(error);
 		}
-	}
-)
+	})
+);

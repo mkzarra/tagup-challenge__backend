@@ -5,7 +5,7 @@ module.exports = app => {
 		passport.authenticate('google', { scope: ['profile', 'email'] }));
 	
 	app.get('/auth/google/callback',
-		passport.authenticate('google'), (req, res) => {
+		passport.authenticate('google', { failureRedirect: '/'}), (req, res) => {
 			try {
 				res.redirect('/');
 			} catch (error) {
@@ -19,6 +19,7 @@ module.exports = app => {
 	});
 
 	app.get('/api/current_user', (req, res) => {
-		res.send(req.user);
+		console.log(req.user);
+		res.send({ ...req.user });
 	});
 };

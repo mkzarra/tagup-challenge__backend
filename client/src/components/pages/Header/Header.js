@@ -5,12 +5,12 @@ import classes from './Header.module.css';
 
 export default class Header extends Component {
 	renderContent() {
-		let authLink = "/auth/google",
+		let authLink = "/api/logout",
 			linkText = "Logout";
 		
-		if (this.props.currentUser) {
-			authLink = "/api/logout",
-			linkText = "Login With Google"
+		if (!this.props.currentUser) {
+			authLink = "/auth/google";
+			linkText = "Login With Google";
 		}
 		
 		return [
@@ -18,7 +18,7 @@ export default class Header extends Component {
 				<Link to="/dogs">
 					<strong>
 						Dogs
-              </strong>
+          </strong>
 				</Link>
 			</li>,
 			<li key="1">
