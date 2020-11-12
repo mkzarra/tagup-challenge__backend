@@ -5,7 +5,6 @@ const dogSchema = new Schema({
 	breed: String,
 	name: String,
 	gender: String,
-	size: Number,
 	weight: Number,
 	age: Number,
 	fixed: Boolean,
