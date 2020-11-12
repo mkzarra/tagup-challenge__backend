@@ -1,4 +1,29 @@
 .Dog {
 	padding: 1rem;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+	width: 15vw;
+	margin: 8px;
+	text-align: center;
+}
+
+.Image {
+	height: 10rem;
+	width: 15rem;
+}
+
+.Date {
+	font-weight: bold;
+}
+
+.Date::before {
+	content: '';
+	position: absolute;
+	height: 0.8rem;
+	min-width: 5.5rem;
+	max-width: 8rem;
+	width: 7rem;
+	background-color: #2bddce;
+	margin-top: 0.8rem;
+	margin-left: 0.4rem;
+	z-index: -1;
 }

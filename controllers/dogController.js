@@ -6,6 +6,7 @@ module.exports = {
 	async index(req, res) {
 		try {
 			const dogs = await Dog.find();
+			console.log("[DOG CONTROLLER]\ndogs: \n", dogs[2]);
 			res.status(200).json({ dogs });
 		} catch (error) {
 			res.status(422).send(error);
@@ -45,6 +46,7 @@ module.exports = {
 	},
 
 	async destroy(req, res) {
+		console.log(req)
 		try {
 			const dog = await Dog.findById(req.params.id);
 			const { name } = dog;

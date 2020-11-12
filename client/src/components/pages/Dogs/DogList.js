@@ -7,7 +7,9 @@ import classes from './DogList.module.css';
 
 class DogList extends Component {
 	state = {
-		dogList: []
+		loading: true,
+		dogList: [],
+		error: null
 	}
 
 	componentDidMount() {
@@ -18,40 +20,48 @@ class DogList extends Component {
 		})
 			.then(res => res.json())
 			.then(resData => {
-				this.setState({ dogList: [...resData.dogs]})
+				console.log(resData.dogs)
+				this.setState({ dogList: [...resData.dogs], loading: false })
+			})
+			.catch(error => {
+				this.setState({ loading: false, error });
 			});
 		
 	}
 
 	render() {
-		const { dogList } = this.state;
+		const { dogList, loading } = this.state;
 		
 		let dogCards = <Spinner />
-		if (dogList.length) {
+		if (dogList.length && !loading) {
 			dogCards = dogList.map(dog => {
-				<Dog
-					key={dog._id}
-					photoSrc={dog.photoSrc}
-					breed={dog.breed}
-					name={dog.name}
-					age={dog.age}
-					weight={dog.weight}
-					fixed={dog.fixed}
-					gender={dog.gender}
-					hairType={dog.hairType}
-					catFriendly={dog.catFriendly}
-					dogFriendly={dog.dogFriendly}
-					kidFriendly={dog.kidFriendly}
-					leashTrained={dog.leashTrained}
-					houseTrained={dog.houseTrained}
-					birthday={dog.birthday}
-					vaccines={dog.vaccines}
-				/>
+				return (
+					<Dog
+						key={dog._id}
+						_id={dog._id}
+						photoSrc={dog.photoSrc}
+						breed={dog.breed}
+						name={dog.name}
+						age={dog.age}
+						weight={dog.weight}
+						fixed={dog.fixed}
+						gender={dog.gender}
+						hairType={dog.hairType}
+						catFriendly={dog.catFriendly}
+						dogFriendly={dog.dogFriendly}
+						kidFriendly={dog.kidFriendly}
+						leashTrained={dog.leashTrained}
+						houseTrained={dog.houseTrained}
+						birthday={dog.birthday}
+						vaccines={dog.vaccines}
+						adoptDog={this.props.adoptDogHandler}
+					/>
+				)
 			});
 		}
 
 		return (
-			<div>
+			<div className={classes.DogList}>
 				{dogCards}
 			</div>
 		);

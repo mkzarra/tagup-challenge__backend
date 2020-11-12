@@ -1,6 +1,6 @@
 .Button {
-	color: aliceblue;
-	background: #49cece;
+	color: white;
+	background: #2bddce;
 	height: 2rem;
 	font-weight: bold;
 	cursor: pointer;
@@ -10,5 +10,5 @@
 }
 
 .Button:hover {
-	background: #2bddce;
+	background: #49cece;
 }

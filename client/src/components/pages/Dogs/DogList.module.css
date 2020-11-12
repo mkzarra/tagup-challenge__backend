@@ -1,0 +1,6 @@
+.DogList {
+	text-align: center;
+	margin: 3.5rem;
+	display: flex;
+	justify-content: space-between;
+}
