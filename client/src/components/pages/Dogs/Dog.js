@@ -8,7 +8,7 @@ export default function Dog(props) {
 	
 	return (
 		<div className={classes.Dog}>
-			<img src={props.photoSrc} className={classes.Image} />
+			<img src={props.photoSrc} className={classes.Image} alt={props.name + " is a " + props.age + " year old " + props.gender + ", " + props.breed + "."}/>
 			<h3>{props.name}</h3>
 			<h5>{props.breed}</h5>
 			<p>{props.age} years old</p>
