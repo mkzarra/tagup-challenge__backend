@@ -36,10 +36,9 @@ class App extends Component {
 	}
 
 	render() {
-		const appHeader = this.state.currentUser && <Header currentUser={this.state.currentUser} />
 		return (
 			<div className="row" style={{ width: "95%" }}>
-				{appHeader}
+				<Header currentUser={this.state.currentUser} />
 				<Route exact path="/dogs" render={() => <DogList currentUser={this.state.currentUser} adoptDogHandler={this.adoptDogHandler} />} />
     	</div>
 		);
