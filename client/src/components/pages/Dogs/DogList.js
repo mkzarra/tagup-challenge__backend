@@ -13,7 +13,6 @@ class DogList extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props.adoptDogHandler);
 		fetch('/api/dogs', {
 			headers: {
 				'Content-Type': 'application/json'
@@ -27,9 +26,23 @@ class DogList extends Component {
 			.catch(error => {
 				this.setState({ loading: false, error });
 			});
-		
 	}
 
+	adoptDogHandler = (event) => {
+		event.preventDefault();
+		fetch('/api/dogs/' + event.target.id, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			user: this.props.currentUser,
+			params: event.target.id
+		}).then(res => {
+			console.log(res)
+			// this.setState({ dogList })
+		});
+	}
+	
 	render() {
 		const { dogList, loading } = this.state;
 		
@@ -55,7 +68,7 @@ class DogList extends Component {
 						houseTrained={dog.houseTrained}
 						birthday={dog.birthday}
 						vaccines={dog.vaccines}
-						adoptDog={this.props.adoptDogHandler}
+						adoptDog={(event) => this.adoptDogHandler(event)}
 					/>
 				);
 			});

@@ -52,7 +52,7 @@ module.exports = {
 			const { name } = dog;
 			dog.remove();
 			const message = `${name} has been adopted! Hooray!`
-			res.status(204).send(message);
+			res.status(204).json({ message });
 		} catch (error) {
 			res.status(404).send(error);
 		}

@@ -20,26 +20,11 @@ class App extends Component {
 			}).catch(error => error)
 	}
 
-	adoptDogHandler = (event) => {
-		console.log(event.target.id)
-		event.preventDefault()
-		fetch('/api/dogs/' + event.target.id, {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			user: this.state.currentUser,
-			params: event.target.id
-		}).then(res => {
-			console.log(res);
-		});
-	}
-
 	render() {
 		return (
 			<div className="row" style={{ width: "95%" }}>
 				<Header currentUser={this.state.currentUser} />
-				<Route exact path="/dogs" render={() => <DogList currentUser={this.state.currentUser} adoptDogHandler={this.adoptDogHandler} />} />
+				<Route exact path="/dogs" render={() => <DogList currentUser={this.state.currentUser} />} />
     	</div>
 		);
 	}
