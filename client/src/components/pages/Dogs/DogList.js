@@ -13,6 +13,7 @@ class DogList extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props.adoptDogHandler);
 		fetch('/api/dogs', {
 			headers: {
 				'Content-Type': 'application/json'
@@ -56,7 +57,7 @@ class DogList extends Component {
 						vaccines={dog.vaccines}
 						adoptDog={this.props.adoptDogHandler}
 					/>
-				)
+				);
 			});
 		}
 
