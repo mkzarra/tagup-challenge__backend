@@ -15,9 +15,8 @@ class App extends Component {
 		fetch('/api/current_user')
 			.then(res => res.json())
 			.then(user => {
-				console.log(user);
 				this.setState({ currentUser: user.googleId });
-			}).catch(error => error)
+			}).catch(error => error);
 	}
 
 	render() {

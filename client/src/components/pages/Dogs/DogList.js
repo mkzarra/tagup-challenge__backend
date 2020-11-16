@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 
 import Dog from './Dog';
-import DogEdit from './DogEdit';
+// import DogEdit from './DogEdit';
 import Spinner from '../../UI/Spinner/Spinner';
 import classes from './DogList.module.css';
 
@@ -12,7 +12,7 @@ class DogList extends Component {
 		error: null
 	}
 
-	componentDidMount() {
+	getDogsIndex = () => {
 		fetch('/api/dogs', {
 			headers: {
 				'Content-Type': 'application/json'
@@ -28,6 +28,10 @@ class DogList extends Component {
 			});
 	}
 
+	componentDidMount() {
+		this.getDogsIndex();
+	}
+
 	adoptDogHandler = (event) => {
 		event.preventDefault();
 		fetch('/api/dogs/' + event.target.id, {
@@ -38,8 +42,8 @@ class DogList extends Component {
 			user: this.props.currentUser,
 			params: event.target.id
 		}).then(res => {
-			console.log(res)
-			// this.setState({ dogList })
+			console.log(res);
+			this.getDogsIndex();
 		});
 	}
 	
@@ -82,4 +86,4 @@ class DogList extends Component {
 	}
 }
 
-export default DogList;
+export default memo(DogList);
