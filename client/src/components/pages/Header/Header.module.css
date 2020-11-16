@@ -2,11 +2,22 @@
   transition: all 0.2s;
 }
 
-nav p {
-  padding: 0 16px;
-  display: inline;
+.Link {
+	font-weight: bolder;
 }
 
-.Dogtime:hover {
+nav p {
+  padding: 0 16px;
+	display: inline;
+}
+
+.Dogtime:hover, .ActiveLink {
   background: #00000018;
+}
+
+
+
+nav div {
+	background: #2bddce;
+	letter-spacing: 2pt;
 }

@@ -2,17 +2,35 @@
 	padding: 1rem;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 	width: 15vw;
+	min-width: 18rem;
 	margin: 8px;
 	text-align: center;
 }
 
 .Image {
+	height: 100%;
+	width: 100%;
+}
+
+.ImageContainer {
 	height: 10rem;
 	width: 15rem;
+	margin: 0.5rem  auto 0 auto;
 }
 
 .Date {
 	font-weight: bold;
+}
+
+.ButtonContainer {
+	display: flex;
+	flex-direction: column;
+	width: 43%;
+	margin: auto;
+}
+
+.ButtonContainer button {
+	margin: 2px;
 }
 
 .Date::before {

@@ -1,0 +1,29 @@
+.DogProfile {
+	margin: 0 5rem;
+}
+
+.Vaccines {
+	overflow: hidden;
+	transition: 0.2s ease-out;
+	height: 48px;
+	box-shadow: 0 2px 8px #00000018;
+}
+
+.Image {
+	height: 100%;
+	width: 100%;
+}
+
+.ImageContainer {
+	height: 10rem;
+	width: 15rem;
+	margin: 2rem auto 0 2rem;
+}
+
+.Vaccines:hover {
+	height:20vh;
+}
+
+.DetailsContainer {
+	margin: 0 auto 0 35vh;
+}

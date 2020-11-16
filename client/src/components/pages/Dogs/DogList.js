@@ -1,5 +1,7 @@
 import React, { Component, memo } from 'react';
+import { Link } from 'react-router-dom';
 
+import DogDetails from './DogDetails';
 import Dog from './Dog';
 // import DogEdit from './DogEdit';
 import Spinner from '../../UI/Spinner/Spinner';
@@ -44,14 +46,16 @@ class DogList extends Component {
 		}).then(res => {
 			console.log(res);
 			this.getDogsIndex();
+		}).catch(error => {
+			this.setState({ error });
 		});
 	}
 	
 	render() {
-		const { dogList, loading } = this.state;
+		const { dogList, loading, error } = this.state;
 		
 		let dogCards = <Spinner />
-		if (dogList.length && !loading) {
+		if (dogList.length && !loading && !error) {
 			dogCards = dogList.map(dog => {
 				return (
 					<Dog
@@ -72,10 +76,15 @@ class DogList extends Component {
 						houseTrained={dog.houseTrained}
 						birthday={dog.birthday}
 						vaccines={dog.vaccines}
-						adoptDog={(event) => this.adoptDogHandler(event)}
+						adoptDog={this.adoptDogHandler}
+						currentUser={this.props.currentUser}
 					/>
 				);
 			});
+		}
+
+		if (error) {
+			dogCards = <pre>error</pre>
 		}
 
 		return (

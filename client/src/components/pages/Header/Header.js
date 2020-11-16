@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import classes from './Header.module.css';
 
@@ -15,16 +15,14 @@ export default class Header extends Component {
 		
 		return [
 			<li key="0">
-				<Link to="/dogs">
-					<strong>
+				<NavLink to="/dogs" className={classes.Link} activeClassName={classes.ActiveLink}>
 						Dogs
-          </strong>
-				</Link>
+				</NavLink>
 			</li>,
 			<li key="1">
-				<a href={authLink}>
+				<NavLink to={authLink} className={classes.Link} activeClassName={classes.ActiveLink}>
 					{linkText}
-				</a>
+				</NavLink>
 			</li>
 		]; 
 	}
@@ -32,13 +30,13 @@ export default class Header extends Component {
 	render() {
 		return (
 			<nav>
-				<div className="nav-wrapper #49cece">
-          <Link
+				<div className="nav-wrapper">
+          <NavLink
             to="/"
             className={[classes.Dogtime, "left brand-logo"].join(" ")}
           >
             <p>Dogtime!</p>
-          </Link>
+          </NavLink>
           <ul className="right">
             {this.renderContent()}
           </ul>
