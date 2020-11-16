@@ -4,4 +4,6 @@
 
 - Simple React Frontend for adding, deleting, updating and viewing records.
 
-- TODO: Seed db with a bunch of dogs.
+- [hosted on heroku](https://fast-beach-77305.herokuapp.com/)
+
+- TODO: cloudinary integration to allow users to upload profile photos when adding a new dog
