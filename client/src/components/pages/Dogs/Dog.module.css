@@ -5,6 +5,7 @@
 	min-width: 18rem;
 	margin: 8px;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .Image {

@@ -2,28 +2,54 @@
 	margin: 0 5rem;
 }
 
+.Wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
 .Vaccines {
+	margin: 4rem;
 	overflow: hidden;
+	width: 15%;
+	padding: 0 12px;
 	transition: 0.2s ease-out;
 	height: 48px;
 	box-shadow: 0 2px 8px #00000018;
+	box-sizing: border-box;
+	border: 1px solid #efefef19;
+	text-align: center;
 }
 
 .Image {
 	height: 100%;
-	width: 100%;
+	width: 30rem;
 }
 
 .ImageContainer {
-	height: 10rem;
-	width: 15rem;
-	margin: 2rem auto 0 2rem;
+	height: 20rem;
+	width: 90%;
+	margin: 2rem 2rem 0 2rem;
+	display: flex;
+	justify-content: space-between;
 }
 
 .Vaccines:hover {
-	height:20vh;
+	height: 20vh;
+}
+
+.ActiveVaccines {
+	height: 20vh;
 }
 
 .DetailsContainer {
-	margin: 0 auto 0 35vh;
+	margin: 0 35vh 0 auto;
+	text-align: center;
+}
+
+h6 {
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	width: 90%;
+	padding-bottom: 8px; 
 }
